@@ -16,6 +16,10 @@ from huggingface_hub import hf_hub_download
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.info("Файл main.py запущен")
+
 app = FastAPI(title="Telegram Diffusion Bot")
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 HF_MODEL_REPO = os.getenv("HF_MODEL_REPO")
@@ -228,3 +232,4 @@ async def health():
 @app.on_event("startup")
 async def on_startup():
     logger.info("Приложение запущено")
+
