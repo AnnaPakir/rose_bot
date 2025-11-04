@@ -3,10 +3,11 @@ services:
     name: diffusion-telegram-bot
     env: python
     plan: free
+    pythonVersion: 3.10.13
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
       - key: HF_MODEL_REPO
-        sync: false
+        value: AnnaPakir/diffusion-bot
